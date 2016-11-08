@@ -1,0 +1,19 @@
+Here is a brief description of what is what. More information is given in the source code.
+
+[Image] is the interface to be used to perform requested operations like scale, convolve etc. 
+It has one implementation of [GreyImageInt], which is just what the name suggests. Similarly, 
+there can be [GreyImageFloat], [RgbImageInt], [RgbImageFloat] to serve similar purpose. 
+Each derived class couples data storage and a manipulator (implementing [ImageManipulator]). 
+It is planned that different aspects of image processing will be separated into distinct concepts 
+which are lightweight interfaces. For example, an interface of [ImageScaler] may be created 
+to perform scale function. Data storage should be moved from [ImageManipulator] as well. 
+These classes follow the Non Virtual Interface pattern suggested by Herb Sutter.
+
+Since direct pixel access is required, an entity of [Pixel] was introduced. It can hold any value 
+and be cast to desired type in a safe and controlled manner. This is a little bit ugly and requires 
+the user to posses information about the data type of the pixel stored, however there is no other 
+choice. Most of the image manipulation should be performed as general operations like scale, so 
+the actual implementation will always select an appropriate cast. This is due to extra information 
+about actual data stored inside the [Manipulator*] family of classes. [Pixel] is a proxy class 
+inspired by boost::any.
+

@@ -28,7 +28,15 @@ public:
     getManipulator().set(x, y, value);
   }
 
+  // TODO implement methods through the same mechanism as the rest above
+  // std::unique_ptr< Image > copy() const { return getManipulator().copy(); }
+  // void convolve(const Kernel3x3 & kernel) { getManipulator().convolve(kernel); }
+  // void scale(const unsigned int factor) { getManipulator().scale(factor); }
+
   virtual ~Image() { }
+
+  // FIXME decide what to do with compiler-generated methods:
+  // ctor, copy ctor, move ctor, assignment
 
 private:
   // TODO separate different aspects: scaling, actual pixel storage etc.
