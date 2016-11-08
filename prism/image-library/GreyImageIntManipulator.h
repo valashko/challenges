@@ -3,7 +3,6 @@
 #include <cassert>
 #include <vector>
 
-#include "GreyPixelInt.h"
 #include "ImageManipulator.h"
 
 
@@ -12,9 +11,11 @@ namespace Prism
 class GreyImageIntManipulator final : public ImageManipulator
 {
 public:
+  using StoredPixelType = int;
+
   GreyImageIntManipulator(const unsigned int width,
                           const unsigned int height,
-                          const std::vector< GreyPixelInt > & data):
+                          const std::vector< StoredPixelType > & data):
       width_(width),
       height_(height),
       data_(data)
@@ -23,19 +24,32 @@ public:
   }
 
 private:
-  virtual unsigned int getWidth() const
+  virtual unsigned int getWidth() const override
   {
     return width_;
   }
 
-  virtual unsigned int getHeight() const
+  virtual unsigned int getHeight() const override
   {
     return height_;
   }
 
+  virtual Pixel doGet(const unsigned int x, const unsigned int y) const override
+  {
+    // TODO assert coordinates since they have been checked by base class
+    return data_[width_ * y + x];
+  }
+
+  virtual void doSet(const unsigned int x, const unsigned int y, const Pixel & value) override
+  {
+    // TODO assert coordinates since they have been checked by base class
+    data_[width_ * y + x] = value.cast< StoredPixelType >(); // copy the value
+  }
+
+
   unsigned int width_;
   unsigned int height_;
-  std::vector< GreyPixelInt > data_;
+  std::vector< StoredPixelType > data_;
 };
 }
 

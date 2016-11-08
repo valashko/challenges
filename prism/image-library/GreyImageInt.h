@@ -11,9 +11,11 @@ namespace Prism
 class GreyImageInt : public Image
 {
 public:
+  using ManipulatorType = GreyImageIntManipulator;
+
   GreyImageInt(const unsigned int width,
                const unsigned int height,
-               const std::vector< GreyPixelInt > data):
+               const std::vector< ManipulatorType::StoredPixelType > data):
       manipulator_(width, height, data)
   { }
 
@@ -31,7 +33,7 @@ private:
   }
 
 
-  GreyImageIntManipulator manipulator_;
+  ManipulatorType manipulator_;
 };
 }
 

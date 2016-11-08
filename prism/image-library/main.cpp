@@ -3,14 +3,15 @@
 #include <string>
 
 #include "GreyImageInt.h"
-#include "GreyPixelInt.h"
 using namespace Prism;
 
 
 int main()
 {
-  const Image & greyImage = GreyImageInt(16, 9, std::vector< GreyPixelInt >(16*9));
+  std::vector< int > greyPixels = { 0, 1, 2, 3, 4 };
+  const Image & greyImage = GreyImageInt(5, 1, greyPixels);
   std::cout << "w: " << greyImage.width() << ", h: " << greyImage.height() << std::endl;
+  std::cout << "get(4,0) = " << greyImage.get(4, 0).cast< int >() << std::endl;
 
   return 0;
 }
