@@ -36,13 +36,13 @@ public:
   virtual ~Image() { }
 
   // FIXME decide what to do with compiler-generated methods:
-  // ctor, copy ctor, move ctor, assignment
+  // ctor, copy ctor, move ctor, assignment, move assignment
 
 private:
-  // TODO separate different aspects: scaling, actual pixel storage etc.
-  // and provide getters for implementation in a similar way as getManipulator():
+  // TODO separate different aspects: scaling, actual data storage etc.
+  // and provide getters for implementations in a similar way as getManipulator():
   // getScaler() -> implements scale()
-  // getPixelStorage() -> implements pixel access
+  // getPixelStorage() -> implements data access
   // get***
 
   // FIXME potential pitfall: somebody may accidentally replace the manipulator through this call

@@ -27,7 +27,7 @@ public:
   {
     if(castIsValid< OtherType >()) {
       // I would like to do this, however it is not possible:
-      // return static_cast<std::unique_ptr< PixelTypeHolder<OtherType> > >(holder_)->t_;
+      // return static_cast<std::unique_ptr< PixelTypeHolder<OtherType> > >(holder_)->value_;
       return static_cast< PixelTypeHolder<OtherType> * >(holder_.get())->value_;
     } else {
       // TODO improve with abi::__cxa_demangle to get readable type names
