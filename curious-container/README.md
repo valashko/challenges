@@ -1,9 +1,9 @@
-Implement a container that supports the following operations:
+Implement a homogeneous (i.e. all elements have the same type) container that supports the following operations:
 
-* `init()`
-* `get(index)`
-* `set(index, value)`
-* `set_all(value)`
+* `init()` initializes a container of predefined size; may be implemented as a constructor instead of a seperate method
+* `get(index)` returns an element at `index`; the index is a number between 0 and 2<sup>32</sup>-1
+* `set(index, value)` sets an element at `index` to `value`
+* `set_all(value)` sets all elements to `value`
 
 The container has to satisfy these requirements:
 * Call to `init` is performed once and can take as much resources as needed
