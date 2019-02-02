@@ -1,0 +1,10 @@
+Implement the cached_fn class (C++11/14/17) or cached_fn_1,2 classes (C++98/03) and corresponding make_cached function(s).
+You are allowed to add anything (class members, methods, implementation for existing methods).
+You are not allowed to change existing class/method/function definitions or remove anything from main.
+cached_fn shall evaluate the wrapped function only once for a given set of arguments and save the result for future invocations. Thus, a sequence will look like this:
+(0) provided you have cached_sum that wraps sum(int, int)
+(1) cached_sum(3, 5) -> invoke sum(3, 5) and remember 8, return 8
+(2) cached_sum(3, 5) -> return 8
+(3) cached_sum(3, 6) -> invoke sum(3, 6) and remember 9, return 9
+(4) cached_sum(3, 5) -> return 8
+(5) cached_sum(3, 6) -> return 9
