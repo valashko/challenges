@@ -9,7 +9,7 @@ template<typename Result, typename... Args>
 class cached_fn final
 {
 public:
-    using Function = Result (*)(Args...);
+    using Function = Result (*)(Args&&...);
 
     cached_fn(Function f);
 
@@ -22,5 +22,5 @@ private:
 #if __cplusplus < 201703L
     // not required with C++17 because of implicitly-generated deduction guide
     template<typename Result, typename... Args>
-    cached_fn<Result, Args...> make_cached(Result (*function)(Args...));
+    cached_fn<Result, Args...> make_cached(Result (*function)(Args&&...));
 #endif
