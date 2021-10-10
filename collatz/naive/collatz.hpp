@@ -2,7 +2,7 @@
 
 using ll = unsigned long long;
 
-// returns cycle length for input N
+// returns Collatz sequence length for input N
 ll collatz(ll n) {
   assert(n != 0);
   ll len = 1;

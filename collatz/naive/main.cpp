@@ -2,6 +2,7 @@
 // - input is well-formed (no exquisite checks are needed)
 // - input is in base 10
 // - "below which the longest ..." interpreted as "strictly below (<)"
+// - the smallest number (if multiple exist) having the longest sequence is the answer
 
 #include <iostream>
 #include <stdexcept>
